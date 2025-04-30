@@ -8,7 +8,7 @@
  */
 
 .notion {
-  --notion-max-width: 720px;
+  --notion-max-width: 100%;
   --notion-header-height: 54px;
 }
 
@@ -19,10 +19,11 @@
 .notion-page {
   padding-bottom: calc(max(5vh, 32px)) !important;
   line-height: 1.65;
+  max-width: 100% !important;
 }
 
 .index-page {
-  --notion-max-width: 900px;
+  --notion-max-width: 100%;
 }
 
 .notion-text {
@@ -44,8 +45,9 @@
 }
 
 .notion-header .notion-nav-header {
-  max-width: 1100px;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 0 20px;
   overflow-x: auto;
 }
 
@@ -145,6 +147,31 @@
   .index-page.notion-page {
     padding-left: 2vw;
     padding-right: 2vw;
+  }
+}
+
+/* Thêm CSS để làm cho container chính linh hoạt hơn */
+.notion-frame {
+  max-width: 100% !important;
+}
+
+.notion-page-content {
+  max-width: 100% !important;
+  padding-left: 250px !important;
+  padding-right: 250px !important;
+}
+
+@media only screen and (max-width: 1200px) {
+  .notion-page-content {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .notion-page-content {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
   }
 }
 
