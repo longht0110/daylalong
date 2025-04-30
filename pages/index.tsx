@@ -19,5 +19,10 @@ export const getStaticProps = async () => {
 }
 
 export default function NotionDomainPage(props) {
-  return <NotionPage {...props} />
+  return (
+    <details>
+      <summary>Xem chi tiết</summary>
+      <NotionPage {...props} />
+    </details>
+  )
 }
