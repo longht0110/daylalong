@@ -25,6 +25,7 @@ import { NotionPageHeader } from './NotionPageHeader'
 import { Page404 } from './Page404'
 import { PageAside } from './PageAside'
 import { PageHead } from './PageHead'
+import { BackButton } from './BackButton'
 import styles from './styles.module.css'
 
 // -----------------------------------------------------------------------------
@@ -252,11 +253,10 @@ export const NotionPage: React.FC<types.PageProps> = ({
         url={canonicalPageUrl}
       />
 
+      <BackButton />
+
       {isLiteMode && <BodyClassName className='notion-lite' />}
       {isDarkMode && <BodyClassName className='dark-mode' />}
-
-      {/* Nút trở về khi không phải trang gốc */}
-      
 
       <NotionRenderer
         bodyClassName={cs(

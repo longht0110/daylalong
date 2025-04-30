@@ -27,8 +27,8 @@
 .loadingIcon {
   animation: spinner 0.6s linear infinite;
   display: block;
-  width: 24px;
-  height: 24px;
+  width: 54px;
+  height: 54px;
   color: rgba(55, 53, 47, 0.4);
 }
 
@@ -217,4 +217,56 @@
 
 .hidden {
   visibility: hidden;
+}
+
+.backButton {
+  position: fixed;
+  top: 160px;  /* Thay đổi vị trí từ trên xuống */
+  left: 235px; /* Thay đổi vị trí từ trái sang */
+  z-index: 1000;
+}
+
+.backButton a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;  /* Tăng chiều rộng của nút */
+  height: 50px; /* Tăng chiều cao của nút */
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8); /* Màu nền với độ trong suốt */
+  color: #333; /* Màu chữ đậm hơn */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Đổ bóng đậm hơn */
+  transition: all 0.3s ease; /* Hiệu ứng mượt hơn */
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Viền mỏng */
+}
+
+.backButton a:hover {
+  background-color: rgba(255, 255, 255, 0.95); /* Màu nền khi hover */
+  transform: translateY(-3px) scale(1.05); /* Hiệu ứng nổi và phóng to */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Đổ bóng lớn hơn khi hover */
+  color: #007bff; /* Màu xanh khi hover */
+}
+
+.backButton svg {
+  width: 30px;  /* Tăng chiều rộng của biểu tượng */
+  height: 30px; /* Tăng chiều cao của biểu tượng */
+}
+
+/* CSS cho chế độ tối (Dark Mode) */
+.dark-mode .backButton a {
+  background-color: rgba(30, 30, 30, 0.8);
+  color: #f0f0f0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .backButton a:hover {
+  background-color: rgba(40, 40, 40, 0.95);
+  color: #4da3ff;
+}
+
+/* Ẩn nút trở về trên thiết bị di động */
+@media (max-width: 1451px) {
+  .backButton {
+    display: none; /* Ẩn hoàn toàn nút trở về trên thiết bị di động */
+  }
 }
