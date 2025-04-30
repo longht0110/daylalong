@@ -25,6 +25,7 @@ import { NotionPageHeader } from './NotionPageHeader'
 import { Page404 } from './Page404'
 import { PageAside } from './PageAside'
 import { PageHead } from './PageHead'
+import { BackButton } from './BackButton'
 import styles from './styles.module.css'
 
 // -----------------------------------------------------------------------------
@@ -252,27 +253,11 @@ export const NotionPage: React.FC<types.PageProps> = ({
         url={canonicalPageUrl}
       />
 
-      {/* Nút trở về khi không phải trang gốc */}
-      {pageId !== site.rootNotionPageId && (
-        <div style={{ margin: '16px 0' }}>
-          <button
-            onClick={() => router.back()}
-            style={{
-              padding: '8px 16px',
-              background: '#eee',
-              border: 'none',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              fontSize: '1rem'
-            }}
-          >
-            ← Trở về
-          </button>
-        </div>
-      )}
-
       {isLiteMode && <BodyClassName className='notion-lite' />}
       {isDarkMode && <BodyClassName className='dark-mode' />}
+
+      {/* Nút trở về khi không phải trang gốc */}
+      
 
       <NotionRenderer
         bodyClassName={cs(
@@ -297,6 +282,11 @@ export const NotionPage: React.FC<types.PageProps> = ({
         searchNotion={config.isSearchEnabled ? searchNotion : null}
         pageAside={pageAside}
         footer={footer}
+        bodyContent={pageId !== site.rootNotionPageId ? (
+          <div style={{ margin: '16px 0' }}>
+            <BackButton />
+          </div>
+        ) : undefined}
       />
     </>
   )
