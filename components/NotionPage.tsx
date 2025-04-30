@@ -252,9 +252,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
         url={canonicalPageUrl}
       />
 
-      {isLiteMode && <BodyClassName className='notion-lite' />}
-      {isDarkMode && <BodyClassName className='dark-mode' />}
-
       {/* Nút trở về khi không phải trang gốc */}
       {pageId !== site.rootNotionPageId && (
         <div style={{ margin: '16px 0' }}>
@@ -273,6 +270,9 @@ export const NotionPage: React.FC<types.PageProps> = ({
           </button>
         </div>
       )}
+
+      {isLiteMode && <BodyClassName className='notion-lite' />}
+      {isDarkMode && <BodyClassName className='dark-mode' />}
 
       <NotionRenderer
         bodyClassName={cs(
