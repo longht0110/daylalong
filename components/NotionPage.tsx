@@ -255,6 +255,25 @@ export const NotionPage: React.FC<types.PageProps> = ({
       {isLiteMode && <BodyClassName className='notion-lite' />}
       {isDarkMode && <BodyClassName className='dark-mode' />}
 
+      {/* Nút trở về khi không phải trang gốc */}
+      {pageId !== site.rootNotionPageId && (
+        <div style={{ margin: '16px 0' }}>
+          <button
+            onClick={() => router.back()}
+            style={{
+              padding: '8px 16px',
+              background: '#eee',
+              border: 'none',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              fontSize: '1rem'
+            }}
+          >
+            ← Trở về
+          </button>
+        </div>
+      )}
+
       <NotionRenderer
         bodyClassName={cs(
           styles.notion,
