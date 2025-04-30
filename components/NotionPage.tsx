@@ -264,8 +264,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
           styles.notion,
           pageId === site.rootNotionPageId && 'index-page'
         )}
-        darkMode={isDarkMode}
-        components={components}
+        darkMode={isDarkMode}        components={components}
         recordMap={recordMap}
         rootPageId={site.rootNotionPageId}
         rootDomain={site.domain}
@@ -282,11 +281,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
         searchNotion={config.isSearchEnabled ? searchNotion : null}
         pageAside={pageAside}
         footer={footer}
-        bodyContent={pageId !== site.rootNotionPageId ? (
-          <div style={{ margin: '16px 0' }}>
-            <BackButton />
-          </div>
-        ) : undefined}
       />
     </>
   )
